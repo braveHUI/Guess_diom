@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="page">
+  <view class="page__td page__bd page__bd_spacing">
+    <view class="text-center">
+      <block wx:if="{{!hasUserInfo}}">
+        <image class="logo" src="/images/logo.png"></image>
+        <button class="weui-btn" type="warn" open-type="getUserInfo" bindgetuserinfo="bindLogin">微信登入                 </button>
+      </block>
+      <block wx:else>
+        <view class="userinfo-sesion">已通过关卡: {{userInfo.sesion}}</view>
+        <image class="userinfo-avatar" src="{{userInfo.avatar}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickname}}</text>
+        <button class="weui-btn" type="default" bindtap="bindRank">排行榜</button>
+        <button class="weui-btn" type="warn" bindtap="bindBegin">开始挑战</button>
+      </block>
+    </view>
+  </view>
+</view>
+
